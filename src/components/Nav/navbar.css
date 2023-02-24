@@ -1,7 +1,7 @@
 
-*{
+/* *{
     border: 2px solid white;
-}
+} */
 .navbar{
     display: flex;
     justify-content: space-between;  

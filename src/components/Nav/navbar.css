@@ -5,11 +5,12 @@
 .navbar{
     display: flex;
     justify-content: space-between;  
-    height: 10vh;
+    height: 5vh;
     list-style: none;
     width: 100vw;
     align-items: center;
     background-color: #001C34;
+    padding: 1rem;
 }
 
 .nav-links{
@@ -20,4 +21,24 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    font-weight: 600;
+    color: #ffffff;
+    align-items: center;
+}
+
+.nav-links a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #15645E;
+    border-bottom: #15645E solid 3px;
+    padding-bottom: 0.5rem;
+
+  }
+
+.logoImage{
+    height: 2rem;
+    width: auto;
 }

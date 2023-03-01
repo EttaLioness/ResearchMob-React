@@ -34,32 +34,45 @@ useEffect(() => {
     // setProjectList(allProjects)
 }, []);
 
-    // const percentagePledged = () => {
-    //     result = {projectData.total_amount_pledged} / {projectData.goal}    
-    //     return result
-    // };
     
     const owner = userList.find((user)=>user.id==projectData.owner)
     console.log(owner)
+    const percentageGoalReached =(projectData.total_amount_pledged / projectData.goal)*100
+    const editProjectLink = `/EditProjectPage/${projectData.id}`
     return(
         <div>
             <h2>{projectData.title}</h2>
+            <h4>{owner?.first_name}</h4>
+            <h4>{owner?.username}</h4>
             <img src={projectData.image}></img>
-            <h2>{projectData.goal}</h2>
-            <h2>{projectData.total_amount_pledged}</h2>
-            <h4>{(projectData.total_amount_pledged / projectData.goal)*100}</h4>
+            <h2>Goal {projectData.goal}</h2>
+            <h2>{projectData.total_amount_pledged} Amount Pledged</h2>
+            <h4>{`${percentageGoalReached}%`} Funded</h4>
             <h3>{`Created at: ${projectData.date_created}`}</h3>
             <h3>{`Status: ${projectData.is_open}`}</h3>
             <Link to='/makepledge'>
                 <button>Fund This Project</button>
             </Link>
+
+            <h2>{projectData.description}</h2>
+            <h5>What is the context of this research?</h5>
+            <p>{projectData.question_one}</p>
+
+            <h5>What is the significance of this project?</h5>
+            <p>{projectData.question_two}</p>
+
+            <h5>What are the goals of the project?</h5>
+            <p>{projectData.question_three}</p>
+
             <h3>Pledges</h3>
             <ul>
                 {projectData.pledges.map((pledgeData, key) => {
-                    return <li>{pledgeData.amount}</li>
+                    // return <li>supporters (names): {pledgeData.supporter}</li>
+                    
+                    return (<li key={key}> {pledgeData.amount} from {pledgeData.supporter}</li>);
                 })}
             </ul>
-            <h6>{owner?.first_name}</h6>
+            <Link to={editProjectLink} ><button>Edit Project</button></Link>
         </div>
     )
 };

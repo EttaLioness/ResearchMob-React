@@ -7,8 +7,10 @@ import ProjectPage from './pages/ProjectPage';
 import LoginPage from './pages/LoginPage';
 import CreateProjectPage from './pages/CreateProjectPage';
 import MakePledgePage from './pages/MakePledgePage';
+import EditProjectPage from './pages/EditProjectPage';
 
 import './App.css'
+
 
 
 const HeaderLayout = () => {
@@ -44,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: '/makepledge',
         element: <MakePledgePage />
+      },
+      {
+        path: "/EditProjectPage/:id",
+        element: <EditProjectPage />
       }
     ]
 

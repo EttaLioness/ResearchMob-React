@@ -1,7 +1,10 @@
-import React, { useState }from "react";
+import React, { useState, useEffect }from "react";
 import { useNavigate }from 'react-router-dom';
 
-function CreateProjectForm(){
+function EditProjectForm(props){
+
+    const { id } = props;
+
     const [ formData , setFormData ] = useState({
         title: '',
         description: '',
@@ -16,8 +19,17 @@ function CreateProjectForm(){
         
     });
 
-    const [error, setErrors] = useState();
-    const navigate = useNavigate();
+
+    useEffect(() => {
+        fetch(`${import.meta.env.VITE_API_URL}projects/${id}`)
+        .then((results) => {
+            return results.json();
+    })
+        .then((data) => {
+            setFormData(data)
+        })
+},[]);
+
     
     const handleChange = (event) => {
         const { id, value } = event.target;
@@ -27,30 +39,26 @@ function CreateProjectForm(){
         }));
     };
     
+    const navigate = useNavigate();
+    // console.log(credentials)
     
     const handleSubmit = (event) => {
         event.preventDefault(); //Dont send anything get, want to add logic
     
-            postData().then((response) => {
+    
+        // if(formData){
+            putData().then((response) => {
                 console.log(response)
-                if (response.detail == "Invalid token."){
-                    alert('You have to be logged in to create a project')    
-                    navigate('/login')
-                    }
                 // window.localStorage.setItem("token", response.token)
-                else{
-                    navigate(`/project/${response.id}`)};
-                if (response.status >= 400){
-                    setErrors(Object.values(response))
-                }
+                navigate(`/project/${response.id}`);
             })  
-
+        // }
     }
     
-    const postData = async () => {
+    const putData = async () => {
         const token = window.localStorage.getItem("token")
-        const response = await fetch(`${import.meta.env.VITE_API_URL}projects/`, {
-            method: "post",
+        const response = await fetch(`${import.meta.env.VITE_API_URL}projects/${id}`, {
+            method: "put",
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `token ${token}`
@@ -64,26 +72,22 @@ function CreateProjectForm(){
     // console.log(formData)
 
     return (
-        <>
-        <div>
-            {error && <h1>{error}</h1>}
-        </div>
         <form> 
             <div>
                 <label htmlFor="title">Project Title:</label>
-                <input onChange={handleChange} type="text" id="title" placeholder="Enter Project Title" required></input>
+                <input onChange={handleChange} type="text" id="title" value={formData.title}></input>
             </div>
             <div>
                 <label htmlFor="description">Description:</label>
-                <textarea id="description" rows={20} cols={40} onChange={handleChange} placeholder="Enter a Description" required/>
+                <textarea id="description" rows={20} cols={40} onChange={handleChange} value={formData.description}/>
             </div>
             <div>
                 <label htmlFor="image">Image:</label>
-                <input type="url" id="image" pattern="https://*" onChange={handleChange} placeholder="image" required/>
+                <input type="url" id="image" pattern="https://*" onChange={handleChange} value={formData.image}/>
             </div>
             <div>
                 <label htmlFor="goal">Goal amount to raise:</label>
-                <input onChange={handleChange} type="number" id="goal" placeholder="Enter amount" required></input>
+                <input onChange={handleChange} type="number" id="goal" value={formData.goal}></input>
             </div>
             <div>
                 <label htmlFor="category">Pick a Category:</label>
@@ -113,24 +117,23 @@ function CreateProjectForm(){
             </div>
             <div>
                 <label htmlFor="project_email">Project Contact Email:</label>
-                <input onChange={handleChange} type="email" id="project_email" placeholder="Enter a project email " required></input>
+                <input onChange={handleChange} type="email" id="project_email" value={formData.project_email}></input>
             </div>
             <div>
                 <label htmlFor="question_one">What is the context of this research?</label>
-                <input onChange={handleChange} type="text" id="question_one" placeholder="Enter question response " required></input>
+                <input onChange={handleChange} type="text" id="question_one" value={formData.question_one}></input>
             </div>
             <div>
                 <label htmlFor="question_two">What is the significance of this project?</label>
-                <input onChange={handleChange} type="text" id="question_two" placeholder="Enter question response " required></input>
+                <input onChange={handleChange} type="text" id="question_two" value={formData.question_two}></input>
             </div>
             <div>
                 <label htmlFor="question_three">What are the goals of the project?</label>
-                <input onChange={handleChange} type="text" id="question_three" placeholder="Enter question response " required></input>
+                <input onChange={handleChange} type="text" id="question_three" value={formData.question_three}></input>
             </div>
-            <button type="submit" onClick={handleSubmit} >Create Project</button>
+            <button type="submit" onClick={handleSubmit} >Edit Project</button>
         </form>
-        </>
     )
 };
 
-export default CreateProjectForm;
+export default EditProjectForm;

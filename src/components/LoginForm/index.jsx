@@ -8,6 +8,10 @@ const [ credentials, setCredentials ] = useState({
     password: '',
 });
 
+const [error, setErrors] = useState();
+
+
+
 const handleChange = (event) => {
     const { id, value } = event.target;
     setCredentials((prevCredentials) => ({
@@ -21,40 +25,53 @@ const navigate = useNavigate();
 
 const handleSubmit = (event) => {
     event.preventDefault(); //Dont send anything get, want to add logic
-
-
-    if(credentials.username && credentials.password){
+    
+    if (credentials.username && credentials.password) {
         postData().then((response) => {
-            window.localStorage.setItem("token", response.token)
-            navigate('/');
-        })  
+            if (response.token){
+                window.localStorage.setItem("token", response.token);
+                window.localStorage.setItem("username", credentials.username);
+                navigate('/');
+            } else {
+                setErrors(Object.values(response)[0][0]);
+            }
+        });  
     }
-}
+};
 
 const postData = async () => {
     const response = await fetch(`${import.meta.env.VITE_API_URL}api-token-auth/`, {
         method: "post",
-        headers: {
-            "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(credentials)
-    })
+    });
     return response.json();
-}
+};
 
     return (
-        <form> 
-            <div>
-                <label htmlFor="username">Username:</label>
-                <input onChange={handleChange} type="text" id="username" placeholder="Enter username"></input>
-            </div>
-            <div>
-            <label htmlFor="password">Password:</label>
-                <input onChange={handleChange} type="password" id="password" placeholder="Password"></input>
-            </div>
-
-            <button type="submit" onClick={handleSubmit} >Login</button>
-        </form>
+        <div>
+            {error && <h1>{error}</h1>}
+            <form> 
+                <div>
+                    <label htmlFor="username">Username:</label>
+                    <input 
+                        onChange={handleChange} 
+                        type="text" id="username" 
+                        placeholder="Enter username">
+                    </input>
+                </div>
+                <div>
+                    <label htmlFor="password">Password:</label>
+                    <input 
+                        onChange={handleChange}     
+                        type="password" 
+                        id="password" 
+                        placeholder="Password">
+                    </input>
+                </div>
+                <button type="submit" onClick={handleSubmit}>Login</button>
+            </form>
+        </div>
     )
 };
 

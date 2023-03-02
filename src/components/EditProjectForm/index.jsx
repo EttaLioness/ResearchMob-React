@@ -1,4 +1,5 @@
 import React, { useState, useEffect }from "react";
+import { Link } from "react-router-dom";
 import { useNavigate }from 'react-router-dom';
 
 function EditProjectForm(props){
@@ -131,7 +132,8 @@ function EditProjectForm(props){
                 <label htmlFor="question_three">What are the goals of the project?</label>
                 <input onChange={handleChange} type="text" id="question_three" value={formData.question_three}></input>
             </div>
-            <button type="submit" onClick={handleSubmit} >Edit Project</button>
+            <button type="submit" onClick={handleSubmit} > Submit Edit</button>
+            <Link to={`/project/${formData.id}`}>Cancel</Link>
         </form>
     )
 };

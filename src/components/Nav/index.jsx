@@ -16,7 +16,7 @@ function Nav(){
             <ul className="nav-links">
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/createproject">Create Research Project</Link></li>
-                <li><Link to="/login">Login</Link></li>
+                <li><Link to="/login" className="loginButton">Login</Link></li>
             </ul>
             
         </nav>

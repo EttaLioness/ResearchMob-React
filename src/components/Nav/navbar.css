@@ -13,7 +13,7 @@
     padding: 1rem;
 }
 
-.nav-links{
+.nav-links {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -41,4 +41,15 @@
 .logoImage{
     height: 2rem;
     width: auto;
+}
+
+.loginButton{
+    background-color: #15645E;
+    padding: 0.8rem;
+}
+
+.loginButton:hover{
+    background-color: #ffffff;
+    color:#001C34;
+    padding: 0.8rem;
 }

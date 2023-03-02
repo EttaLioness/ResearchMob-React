@@ -42,21 +42,27 @@ useEffect(() => {
                     <h1>breakthrough</h1>
                 </div>
                 <div className="heroButtons">
-                    <a href="#allProjectContainer">Donate Now</a><li>
-                    <Link to="/createproject">Start Your Research</Link></li>
+                    <li><a href="#allProjectContainer">Donate Now</a></li>
+                    <li><Link to="/createproject">Start Your Research</Link></li>
                 </div>
             </section>
-            <main>
-                <section>
-                    <h2>What is ResearchMob?</h2>
+            <main className="mainContainer">
+                <section className="mainBox">
+                    <div clasName="mainTitleBox"> 
+                        <h2>What is ResearchMob?</h2>
+                    </div>
                     <p>Researchmob is a crowdfunding platform enabling the community, industry and academia to contribute funding towards innovative scientific research.</p>
                 </section>
-                <section>
-                    <h2>Why crowdfund scientific research?</h2>
+                <section className="mainBox">
+                    <div clasName="mainTitleBox"> 
+                        <h2>Why crowdfund scientific research?</h2>
+                    </div>
                     <p>Funds are directly distributed to the scientists conducting the research project, unlike receiving grands at a Universities where generally only 85-50% of total funds are received.</p>
                 </section>
-                <section>
-                    <h2>How does a donor benefit?</h2>
+                <section className="mainBox">
+                    <div clasName="mainTitleBox"> 
+                        <h2>How does a donor benefit?</h2>
+                    </div>
                     <p>Scientists share progress and results directly with donors and a final published scientific paper is supplied to them.</p>
                     <p>Donors also have the choice to be acknowledged in the publication ,of which are usually open-sourced or cited, thereby having a direct scientific impact that is shared with the world.</p>
                 </section>
@@ -66,12 +72,23 @@ useEffect(() => {
                     return <div> {category} </div>
                 })}
             </div> */}
-            <div id="allProjectContainer">
-                {projectList.map((projectData, key) => {
+            <section className="allProjectsContainer">
+                <div className="farButtonContainer">
+                    <h2>Featured Projects</h2>
+                    <a href="#" >See All Projects</a>
+                </div>
+                <section>
+                    <div className="allProjectSection">
+                    {projectList.map((projectData, key) => {
+                    if (key < 3)
                     return <ProjectCard key={key} projectData={projectData} />
                     // <div key={key}>{projectData.title}</div>
                 })}
-            </div>
+                    </div>
+                </section>
+                
+            </section>
+            
             {/* <div>
                 {userList.map((userData, key) => {
                     return <ProjectCard key={key} usertData={userData} />

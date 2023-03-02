@@ -2,6 +2,7 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 //With the Navlink, you also have to import BrowserRouter and wrap the App component in it.
 import Nav from "./components/Nav/index";
+import Footer from "./components/Footer/index";
 import HomePage from './pages/HomePage';
 import ProjectPage from './pages/ProjectPage';
 import LoginPage from './pages/LoginPage';
@@ -18,6 +19,7 @@ const HeaderLayout = () => {
     <div>
       < Nav />
       < Outlet />
+      < Footer />
     </div>
   )
 }
@@ -44,7 +46,7 @@ const router = createBrowserRouter([
         element: <CreateProjectPage />
       },
       {
-        path: '/makepledge',
+        path: '/project/:id/makepledge',
         element: <MakePledgePage />
       },
       {

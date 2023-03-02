@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
-import { oneProject } from "../data";
+// import { oneProject } from "../data"; trialling with given data
 
 
 function ProjectPage(){
@@ -43,14 +43,13 @@ useEffect(() => {
         <div>
             <h2>{projectData.title}</h2>
             <h4>{owner?.first_name}</h4>
-            <h4>{owner?.username}</h4>
             <img src={projectData.image}></img>
             <h2>Goal {projectData.goal}</h2>
             <h2>{projectData.total_amount_pledged} Amount Pledged</h2>
             <h4>{`${percentageGoalReached}%`} Funded</h4>
             <h3>{`Created at: ${projectData.date_created}`}</h3>
             <h3>{`Status: ${projectData.is_open}`}</h3>
-            <Link to='/makepledge'>
+            <Link to='/project/:id/makepledge'>
                 <button>Fund This Project</button>
             </Link>
 

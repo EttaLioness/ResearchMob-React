@@ -56,16 +56,75 @@
 }
 
 
+/*==========Main Section==========*/
+.mainContainer{
+  max-width: 100vw;
+  height: 80vh;
+  display: flex;
+  padding: 5%;
+
+}
+
+
+.mainBox{
+  width: 22%;
+  min-height: 80%;
+  border: solid black 2px;
+  margin: 5%;
+  padding: 1%;
+  color: white;
+  background: #15645E;
+  overflow: auto;
+}
+
+.mainTitleBox{
+  height: 50%;
+  width: 100%;
+}
 
 /*========All Projects============*/
 
-.allProjectContainer{
+.allProjectSection{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding: 5%;
+  
 }
 
+.farButtonContainer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.farButtonContainer a{
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.8em 1.9em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #001C34;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color: white;
+  text-decoration: none;
+}
+
+.farButtonContainer a:hover {
+  border-color: #15645E;
+}
+.farButtonContainer a:focus,
+.farButtonContainer a:focus-visible {
+  outline: rem auto -webkit-focus-ring-color;
+}
+
+.allProjectsContainer{
+  max-width: 100vw;
+  height: auto;
+  padding: 5%;
+}
 
 /* 
 }

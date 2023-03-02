@@ -128,6 +128,7 @@ function CreateProjectForm(){
                 <input onChange={handleChange} type="text" id="question_three" placeholder="Enter question response " required></input>
             </div>
             <button type="submit" onClick={handleSubmit} >Create Project</button>
+            <Link to={'/'}>Cancel</Link>
         </form>
         </>
     )

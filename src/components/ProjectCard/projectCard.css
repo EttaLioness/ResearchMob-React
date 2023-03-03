@@ -1,13 +1,16 @@
 .projectCardContainer{
-    /* padding:2%;
-    width: 20%;
+    padding:2%;
+    /*width: 20%;
     border: 1px solid black;
     box-shadow: 0px 0px 5px gray; */
     background: #fff;
-    width: 23em;
+    color: black;
+    width: 25%;
     height: auto;
     margin: 1em;
-    overflow: hidden;
+    /* white-space: no-wrap;
+    text-overflow: ellipsis;*/
+    /* overflow: hidden; */
     cursor: pointer;
     box-shadow: 0 13px 27px -5px hsla(240, 30.1%, 28%, 0.25), 0 8px 16px -8px hsla(0, 0%, 0%, 0.3), 0 -6px 16px -6px hsla(0, 0%, 0%, 0.03);
     transition: all ease 200ms;
@@ -20,11 +23,11 @@
 
 .projectCardContainer img {
     width: 100%;
-    height: 300px;
+    height: 40%;
     object-fit: cover;
   }
 
-.projectCardContainer h2{
+.projectCardContainer .title{
     /* font-family: 'Montserrat', sans-serif;
     font-size: 3em;
     margin-bottom: 0.2em;
@@ -34,7 +37,7 @@
     color: #222;
     margin-top: -0.2em;
     line-height: 1.4;
-    font-size: 1.3em;
+    font-size: 20 rem;
     font-weight: 500;
     font-family: 'Montserrat', sans-serif;
     transition: all ease-in 100ms;
@@ -42,10 +45,38 @@
 
 }
 
+.userDetails{
+    display: flex;
+    justify-content:space-evenly;
+    line-height: 1rem;
+}
 .projectCardContainer p{
     color: #777;
-
+    margin: 0%;
 }
+
+.projectCardContainer h6{
+    color: black;
+    margin: 0%;
+}
+
+.moneyValues{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.moneyText{
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: 700;
+}
+.imgContainer{
+    width: 15%;
+}
+.imgContainer img{
+    height: 90%;
+}
+
 
 .projectCardContainer a{
     text-decoration: none;

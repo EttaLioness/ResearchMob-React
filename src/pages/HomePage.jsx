@@ -2,6 +2,7 @@ import React, { useState, useEffect} from "react"; {/* useEffect used in order t
 // import { allProjects } from "../data"; {/*this is for hard coded Data-practice*/}
 import { Link } from 'react-router-dom';
 import ProjectCard from "../components/ProjectCard";
+import "../components/ProjectCard/projectCard.css"
 
 
 const categories = ["Engineering", "Chemistry","Biology","Mathematics", "Social Sciences", "Economic", "Data Science", "Computer Science", "Ecology","Physics", "Material Science","Earth Science","Education","Paleontology","Medicine", "Neuroscience", "Pschycology", "Anthropology", "Art and Design", "Political Science", "Astrophysics"]
@@ -86,8 +87,8 @@ useEffect(() => {
                 <section>
                     <div className="allProjectSection">
                     {projectList.map((projectData, key) => {
-                    if (key < 6)
-                    return <ProjectCard key={key} projectData={projectData} />
+                    // if (key < 6)
+                    return <ProjectCard key={key} projectData={projectData} userList={userList}/>
                     // <div key={key}>{projectData.title}</div>
                 })}
                     </div>

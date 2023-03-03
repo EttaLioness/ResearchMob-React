@@ -14,8 +14,8 @@ function ProjectCard(props){
     const { projectData } = props;
     const { userList } = props;
 
-    // const owner = userList.find((user)=>user.id==projectData.owner);
-    // console.log(owner)
+    const owner = userList.find((user)=>user.id==projectData.owner);
+    console.log(owner)
     const percentageGoalReached =(projectData.total_amount_pledged / projectData.goal)*100
     
 
@@ -23,17 +23,28 @@ function ProjectCard(props){
             <div className="projectCardContainer">
                 <Link to={`/project/${projectData.id}`}>
                     <img src={projectData.image}></img>
-                    <h2>{projectData.title}</h2>
-                    {/* <h4>{owner?.first_name}</h4> */}
+                    <h2 className="Title">{projectData.title}</h2>
                     <p>{projectData.description}</p>
-                    {/* <h4>({projectData.total_amount_pledged} / {projectData.goal})*100</h4> */}
-                    <h4>{projectData.goal}</h4>
+                    <section className="userDetails">
+                        <div className="imgContainer">
+                            <img src={owner?.image} alt="" /> 
+                        </div>
+                        <div>
+                            <h6>{owner?.first_name}{owner?.last_name}</h6>
+                            <p>{owner?.affiliate}</p>
+                        </div>
+                    </section>
+                    
+                    <div className="moneyValues">
+                        <span>{percentageGoalReached}%</span>
+                        <span>${projectData.goal}</span>
+                    </div>
+                    <div className="moneyText">
+                        <span>Funded</span>
+                        <span>Goal</span>
+                    </div>
+                    
                 </Link>
-                {/* <Link to={`/users/${projectData.owner}`}>
-                    <img src={userData.image} alt="Owner Avatar" />
-                    <h4>{userData.first_name}</h4>
-                    <h4>{userData.last_name}</h4>
-                </Link> */}
             </div>
     )
 };

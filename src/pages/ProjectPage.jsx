@@ -43,13 +43,14 @@ useEffect(() => {
         <div>
             <h2>{projectData.title}</h2>
             <h4>{owner?.first_name}</h4>
+            <img src={owner?.image} alt="" />
             <img src={projectData.image}></img>
             <h2>Goal {projectData.goal}</h2>
             <h2>{projectData.total_amount_pledged} Amount Pledged</h2>
             <h4>{`${percentageGoalReached}%`} Funded</h4>
             <h3>{`Created at: ${projectData.date_created}`}</h3>
             <h3>{`Status: ${projectData.is_open}`}</h3>
-            <Link to='/project/:id/makepledge'>
+            <Link to={`/project/${id}/makepledge`}>
                 <button>Fund This Project</button>
             </Link>
 
@@ -67,8 +68,19 @@ useEffect(() => {
             <ul>
                 {projectData.pledges.map((pledgeData, key) => {
                     // return <li>supporters (names): {pledgeData.supporter}</li>
-                    
-                    return (<li key={key}> {pledgeData.amount} from {pledgeData.supporter}</li>);
+                    const supporter = userList.find((user)=>user.id==pledgeData.supporter)
+                    console.log("supporter", supporter)
+                    return (<li key={key}> 
+                    <div>{pledgeData.amount} from {supporter?.username}</div>
+                    <img src={supporter?.image} alt="" />
+        
+                    </li>
+                
+
+                        
+
+
+                    );
                 })}
             </ul>
             <Link to={editProjectLink} ><button>Edit Project</button></Link>

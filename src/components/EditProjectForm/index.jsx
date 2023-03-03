@@ -80,7 +80,7 @@ function EditProjectForm(props){
             </div>
             <div>
                 <label htmlFor="description">Description:</label>
-                <textarea id="description" rows={20} cols={40} onChange={handleChange} value={formData.description}/>
+                <textarea id="description" rows={10} cols={120} onChange={handleChange} value={formData.description}/>
             </div>
             <div>
                 <label htmlFor="image">Image:</label>
@@ -122,15 +122,15 @@ function EditProjectForm(props){
             </div>
             <div>
                 <label htmlFor="question_one">What is the context of this research?</label>
-                <input onChange={handleChange} type="text" id="question_one" value={formData.question_one}></input>
+                <textarea onChange={handleChange} rows={20} cols={120} id="question_one" value={formData.question_one}></textarea>
             </div>
             <div>
                 <label htmlFor="question_two">What is the significance of this project?</label>
-                <input onChange={handleChange} type="text" id="question_two" value={formData.question_two}></input>
+                <textarea onChange={handleChange} rows={20} cols={120} id="question_two" value={formData.question_two}></textarea>
             </div>
             <div>
                 <label htmlFor="question_three">What are the goals of the project?</label>
-                <input onChange={handleChange} type="text" id="question_three" value={formData.question_three}></input>
+                <textarea onChange={handleChange} rows={20} cols={120} id="question_three" value={formData.question_three}></textarea>
             </div>
             <button type="submit" onClick={handleSubmit} > Submit Edit</button>
             <Link to={`/project/${formData.id}`}>Cancel</Link>

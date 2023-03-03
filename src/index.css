@@ -103,7 +103,7 @@
   font-weight: 600;
   font-size: 2rem;
   line-height: 3rem;
-  padding-top: 6rem;
+  padding-top: 6.3rem;
 }
 
 .mainBox.front.a, .mainBox.front.b, .mainBox.front.c{
@@ -149,7 +149,7 @@ background: radial-gradient(circle, rgba(21,100,94,1) 0%, rgba(0,28,52,1) 53%, r
 
 .farButtonContainer{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .farButtonContainer a{

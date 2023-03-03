@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'; //hook that comes with React Router. This will allow us to use the browser’s History API.
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function MakePledgeForm() {
-
+    const { id:projectId } = useParams();
     //State
     const [pledgeData, setPledgeData] = useState({
 
@@ -15,10 +16,11 @@ function MakePledgeForm() {
     });
 
     const handleChange = (event) => {
-        const { id=project, value } = event.target;
+        const { id, value } = event.target;
         setPledgeData((prevpledgeData) => ({
             ...prevpledgeData,
-            [id]: value
+            [id]: value,
+            project: projectId
         }));
     };
 
@@ -29,7 +31,8 @@ function MakePledgeForm() {
     
         {postData().then((response) => {
             console.log(response)
-            navigate(`/project/${response.id}`);
+            alert("Your Donation was successful")
+            navigate(`/project/${projectId}`);
             })
         };
     }
@@ -66,6 +69,7 @@ function MakePledgeForm() {
                     "Authorization": `token ${token}`
                 },
                 body: JSON.stringify(pledgeData)
+
             })
             return response.json();
             

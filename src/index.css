@@ -65,21 +65,75 @@
 
 }
 
-
-.mainBox{
+.mainCardBox{
+  /* perspective: 100rem; */
+  position: relative;
   width: 22%;
-  min-height: 80%;
-  border: solid black 2px;
   margin: 5%;
   padding: 1%;
   color: white;
-  background: #15645E;
-  overflow: auto;
+ 
 }
 
-.mainTitleBox{
-  height: 50%;
-  width: 100%;
+.mainBox{
+  height: 90%;
+  border-radius: 15px;
+  transition: all 0.8s ease;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  padding: 2rem;
+  text-align: center;
+  
+}
+
+.mainBox.back {
+  transform: rotateY(-180deg);
+  background: #15645E;
+  /* background-image: linear-gradient(43deg, #4158D0 0%,#C850C0 46%, #FFCC70 100%); */
+}
+
+.mainBox.front{
+  background: #15645E;
+}
+
+.mainBox.front h2{
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 3rem;
+  padding-top: 6rem;
+}
+
+.mainBox.front.a, .mainBox.front.b, .mainBox.front.c{
+  opacity: 0.8;
+}
+
+.mainBox.front.a{
+  background-image: url("assets/jellyfish.jpg");
+
+}
+.mainBox.front.b{
+  background-image: url("assets/nature.jpg.svg");
+}
+
+.mainBox.front.c{
+  background-image: url("assets/panels.jpg");
+}
+.mainCardBox:hover .mainBox.front {
+  transform: rotateY(180deg);
+}
+
+.mainCardBox:hover .mainBox.back {
+  transform: rotateY(0deg);
+  background: rgb(21,100,94);
+background: radial-gradient(circle, rgba(21,100,94,1) 0%, rgba(0,28,52,1) 53%, rgba(70,177,197,1) 85%);
+}
+
+.mainBox.back.centre p{
+  padding-top: 5rem;
+
 }
 
 /*========All Projects============*/
@@ -89,7 +143,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 5%;
+  padding: 0 5%;
   
 }
 
@@ -123,19 +177,10 @@
 .allProjectsContainer{
   max-width: 100vw;
   height: auto;
-  padding: 5%;
+  padding: 0 5% 5% 5%;
 }
 
-/* 
-}
-button:hover {
-  border-color: #c8ef4a;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
+/*
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

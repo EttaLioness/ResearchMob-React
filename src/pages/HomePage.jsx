@@ -47,24 +47,30 @@ useEffect(() => {
                 </div>
             </section>
             <main className="mainContainer">
-                <section className="mainBox">
-                    <div clasName="mainTitleBox"> 
+                <section className="mainCardBox">
+                    <section className="mainBox front a">
                         <h2>What is ResearchMob?</h2>
-                    </div>
-                    <p>Researchmob is a crowdfunding platform enabling the community, industry and academia to contribute funding towards innovative scientific research.</p>
+                    </section>
+                    <section className="mainBox back centre">
+                        <p>Researchmob is a crowdfunding platform enabling the community, industry and academia to contribute funding towards innovative scientific research.</p>
+                    </section>
                 </section>
-                <section className="mainBox">
-                    <div clasName="mainTitleBox"> 
+                <section className="mainCardBox">
+                    <section className="mainBox front b">
                         <h2>Why crowdfund scientific research?</h2>
-                    </div>
-                    <p>Funds are directly distributed to the scientists conducting the research project, unlike receiving grands at a Universities where generally only 85-50% of total funds are received.</p>
+                    </section>
+                    <section className="mainBox back centre">
+                        <p>Funds are directly distributed to the scientists conducting the research project, unlike receiving grands at a Universities where generally only 85-50% of total funds are received.</p>
+                    </section>
                 </section>
-                <section className="mainBox">
-                    <div clasName="mainTitleBox"> 
+                <section className="mainCardBox">
+                    <section className="mainBox front c">
                         <h2>How does a donor benefit?</h2>
-                    </div>
-                    <p>Scientists share progress and results directly with donors and a final published scientific paper is supplied to them.</p>
-                    <p>Donors also have the choice to be acknowledged in the publication ,of which are usually open-sourced or cited, thereby having a direct scientific impact that is shared with the world.</p>
+                    </section>
+                    <section className="mainBox back">
+                        <p>Scientists share progress and results directly with donors and a final published scientific paper is supplied to them.</p>
+                        <p>Donors also have the choice to be acknowledged in the publication ,of which are usually open-sourced or cited, thereby having a direct scientific impact that is shared with the world.</p>
+                    </section>
                 </section>
             </main>
             {/* <div className="categoryContainer">
@@ -80,7 +86,7 @@ useEffect(() => {
                 <section>
                     <div className="allProjectSection">
                     {projectList.map((projectData, key) => {
-                    if (key < 3)
+                    if (key < 6)
                     return <ProjectCard key={key} projectData={projectData} />
                     // <div key={key}>{projectData.title}</div>
                 })}

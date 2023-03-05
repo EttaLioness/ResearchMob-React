@@ -193,7 +193,7 @@ background: radial-gradient(circle, rgba(21,100,94,1) 0%, rgba(0,28,52,1) 53%, r
 .projectPageMain{
   max-width: 100%;
   padding: 5% 10% 1% 10%;
-  border: #001C34 2px solid;
+  /* border: #001C34 2px solid; */
 }
 
 .projectPageMain img{
@@ -219,11 +219,11 @@ background: radial-gradient(circle, rgba(21,100,94,1) 0%, rgba(0,28,52,1) 53%, r
   padding: 0% 5%;
   display: flex;
   justify-content: center;
-  border: #001C34 2px solid;
+  /* border: #001C34 2px solid; */
 }
 
 .projectImgGoalMini{
-  border: #001C34 2px solid;
+  /* border: #001C34 2px solid; */
   width: 50%;
 }
 
@@ -235,7 +235,7 @@ background: radial-gradient(circle, rgba(21,100,94,1) 0%, rgba(0,28,52,1) 53%, r
 
 .goal{
   text-align: center;
-  border: #001C34 2px solid;
+  /* border: #001C34 2px solid; */
   width: 50%;
   padding: 3%;
 }

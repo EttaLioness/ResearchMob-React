@@ -39,51 +39,60 @@ useEffect(() => {
     console.log(owner)
     const percentageGoalReached =(projectData.total_amount_pledged / projectData.goal)*100
     const editProjectLink = `/EditProjectPage/${projectData.id}`
+    // const OpenProject = () => {return (projectData.is_open) ? "Project Open" : "Project Closed"} Needs Editing
     return(
-        <div>
-            <h2>{projectData.title}</h2>
-            <h4>{owner?.first_name}</h4>
-            <img src={owner?.image} alt="" />
-            <img src={projectData.image}></img>
-            <h2>Goal {projectData.goal}</h2>
-            <h2>{projectData.total_amount_pledged} Amount Pledged</h2>
-            <h4>{`${percentageGoalReached}%`} Funded</h4>
-            <h3>{`Created at: ${projectData.date_created}`}</h3>
-            <h3>{`Status: ${projectData.is_open}`}</h3>
-            <Link to={`/project/${id}/makepledge`}>
-                <button>Fund This Project</button>
-            </Link>
-
-            <h2>{projectData.description}</h2>
-            <h5>What is the context of this research?</h5>
-            <p>{projectData.question_one}</p>
-
-            <h5>What is the significance of this project?</h5>
-            <p>{projectData.question_two}</p>
-
-            <h5>What are the goals of the project?</h5>
-            <p>{projectData.question_three}</p>
-
-            <h3>Pledges</h3>
-            <ul>
-                {projectData.pledges.map((pledgeData, key) => {
-                    // return <li>supporters (names): {pledgeData.supporter}</li>
-                    const supporter = userList.find((user)=>user.id==pledgeData.supporter)
-                    console.log("supporter", supporter)
-                    return (<li key={key}> 
-                    <div>{pledgeData.amount} from {supporter?.username}</div>
-                    <img src={supporter?.image} alt="" />
-        
-                    </li>
+        <div className="projectContainer">
+            <main className="projectPageMain">
+                <h2>{projectData.title}</h2>
+                <img src={owner?.image} alt="" />
+                <h4> By {owner?.first_name}</h4>
+                <h4>{owner?.last_name}</h4>
                 
+            </main>
+            <section className="projectImgGoalContainer">
+                <section className="projectImgGoalMini">
+                    <img src={projectData.image}></img>
+                </section>
+                <section className="projectImgGoalMini goal">
+                    
+                    <h1>${projectData.total_amount_pledged} Funded</h1>
+                    {/* <h2>This project is: {OpenProject}</h2> Needs Editing */}
+                    <h2>Goal ${projectData.goal}</h2>
+                    <h4>{`${percentageGoalReached}%`} Funded</h4>
+                    {/* <h3>{`Created at: ${projectData.date_created}`}</h3> */}
+                    {/* <h3>{`Status: ${projectData.is_open}`}</h3> */}
+                    <Link className="ProjectPageButton" to={`/project/${id}/makepledge`}>Fund This Project</Link>
+                </section>
+            </section>
+            <section className="descriptionAnswers">
+                <h2>About this Scientific Project</h2>
+                <p>{projectData.description}</p>
 
+                <h5>What is the context of this research?</h5>
+                <p>{projectData.question_one}</p>
+
+                <h5>What is the significance of this project?</h5>
+                <p>{projectData.question_two}</p>
+
+                <h5>What are the goals of the project?</h5>
+                <p>{projectData.question_three}</p>
+
+                <h3>People who have already pledged</h3>
+                <ul className="supporterList">
+                    {projectData.pledges.map((pledgeData, key) => {
+                        // return <li>supporters (names): {pledgeData.supporter}</li>
+                        const supporter = userList.find((user)=>user.id==pledgeData.supporter)
+                        console.log("supporter", supporter)
+                        return (<li key={key}> 
+                        <img src={supporter?.image} alt="" />
+                        <div>{supporter?.username} ${pledgeData.amount}</div>
                         
-
-
-                    );
-                })}
-            </ul>
-            <Link to={editProjectLink} ><button>Edit Project</button></Link>
+                        </li>
+                        );
+                    })}
+                </ul>
+                <Link className="ProjectPageButton" to={editProjectLink} >Edit Project</Link>
+            </section>
         </div>
     )
 };

@@ -1,0 +1,71 @@
+.formMasterContainer{
+    /* background-color: #15645E; */
+    background-image: url("../../assets/doubleHelixok.png");
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+}
+
+.formBox{
+    background: rgb(5,62,111);
+    background: linear-gradient(90deg, rgba(5,62,111,1) 0%, rgba(0,28,52,1) 50%, rgba(5,62,111,1) 100%);
+    padding: 5%;
+    width: 80%;
+    border-radius: 2%;
+    color: #ffffff;
+    font-weight: 600;
+    opacity: 0.8;
+    border: #15645E solid 0.15rem;
+}
+
+/* .innerFormBox{
+    display: flex;
+    justify-content: center;
+    border: red solid 2px;
+    width: 100%;
+} */
+.inputBlock{
+    display: block;
+}
+
+textarea, input, select{
+    background-color: #bff6f2
+}
+
+input{
+    width: 81%;
+    padding: 1%;
+}
+
+select{
+    width: 30%;
+    padding: 1%;
+}
+
+.formBox div{
+    padding: 1%;
+}
+
+/*===================BUTTONS===============================*/
+.createProjectButton{
+    background-color: #15645E;
+    padding: 0.8rem;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: medium;
+    border: none;
+}
+
+.createProjectButton:hover{
+    background-color: #ffffff;
+    color:#001C34;
+    padding: 0.8rem;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+}
+

@@ -1,6 +1,7 @@
 import React, { useState }from "react";
 import { useNavigate }from 'react-router-dom';
 import { Link } from "react-router-dom";
+import './createproject.css'
 
 function CreateProjectForm(){
     const [ formData , setFormData ] = useState({
@@ -65,26 +66,15 @@ function CreateProjectForm(){
     // console.log(formData)
 
     return (
-        <>
-        <div>
+        <section className="formMasterContainer">
+        
+        
+        <form className="formBox"> 
+            <div className="innerFormBox">
+
+            <h2>Create A New Scientific Research Project</h2>
+            <div>
             {error && <h1>{error}</h1>}
-        </div>
-        <form> 
-            <div>
-                <label htmlFor="title">Project Title:</label>
-                <input onChange={handleChange} type="text" id="title" placeholder="Enter Project Title" required></input>
-            </div>
-            <div>
-                <label htmlFor="description">Description:</label>
-                <textarea id="description" rows={20} cols={40} onChange={handleChange} placeholder="Enter a Description" required/>
-            </div>
-            <div>
-                <label htmlFor="image">Image:</label>
-                <input type="url" id="image" pattern="https://*" onChange={handleChange} placeholder="image" required/>
-            </div>
-            <div>
-                <label htmlFor="goal">Goal amount to raise:</label>
-                <input onChange={handleChange} type="number" id="goal" placeholder="Enter amount" required></input>
             </div>
             <div>
                 <label htmlFor="category">Pick a Category:</label>
@@ -113,25 +103,45 @@ function CreateProjectForm(){
                 </select>
             </div>
             <div>
-                <label htmlFor="project_email">Project Contact Email:</label>
-                <input onChange={handleChange} type="email" id="project_email" placeholder="Enter a project email " required></input>
+                <label htmlFor="title">Project Title</label>
+                <input className="inputBlock" onChange={handleChange} type="text" id="title" placeholder="Enter a Project Title. Make sure it is catchy!" required></input>
+            </div>
+            <div>
+                <label htmlFor="image">Image</label>
+                <input className="inputBlock" type="url" id="image" pattern="https://*" onChange={handleChange} placeholder="Enter project image URL." required/>
+            </div>
+            <div>
+                <label htmlFor="goal">Goal amount to raise</label>
+                <input className="inputBlock" onChange={handleChange} type="number" id="goal" placeholder="Enter amount you wish to raise." required></input>
+            </div>
+            <div>
+                <label htmlFor="project_email">Project Contact Email</label>
+                <input className="inputBlock" onChange={handleChange} type="email" id="project_email" placeholder="Enter a project email. This is an email your supporters could contact you. " required></input>
+            </div>
+            <div>
+                <label htmlFor="description">Description of scientific project</label>
+                <textarea className="textareaClass" id="description" rows={15} cols={120} onChange={handleChange} placeholder="Please provide a description overview of your scientific project." required/>
             </div>
             <div>
                 <label htmlFor="question_one">What is the context of this research?</label>
-                <input onChange={handleChange} type="text" id="question_one" placeholder="Enter question response " required></input>
+                <textarea onChange={handleChange} rows={15} cols={120} id="question_one" placeholder="Enter question response. " required></textarea>
             </div>
             <div>
                 <label htmlFor="question_two">What is the significance of this project?</label>
-                <input onChange={handleChange} type="text" id="question_two" placeholder="Enter question response " required></input>
+                <textarea onChange={handleChange} rows={15} cols={120} id="question_two" placeholder="Enter question response. " required></textarea>
             </div>
             <div>
                 <label htmlFor="question_three">What are the goals of the project?</label>
-                <input onChange={handleChange} type="text" id="question_three" placeholder="Enter question response " required></input>
+                <textarea onChange={handleChange} rows={15} cols={120} id="question_three" placeholder="Enter question response. " required></textarea>
             </div>
-            <button type="submit" onClick={handleSubmit} >Create Project</button>
-            <Link to={'/'}>Cancel</Link>
+            <div className="buttonContainer">
+                <button type="submit" onClick={handleSubmit} className="createProjectButton" >Create Project</button>
+                <Link to={'/'} className="createProjectButton" > Cancel</Link>
+            </div>
+            
+        </div>
         </form>
-        </>
+        </section>
     )
 };
 

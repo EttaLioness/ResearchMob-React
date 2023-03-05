@@ -7,7 +7,7 @@
     justify-content: space-between;  
     height: 5vh;
     list-style: none;
-    width: 100vw;
+    max-width: 100%;
     align-items: center;
     background-color: #001C34;
     padding: 1rem;

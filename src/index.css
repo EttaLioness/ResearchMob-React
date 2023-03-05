@@ -55,7 +55,7 @@
   outline: rem auto -webkit-focus-ring-color;
 }
 
-
+/*============Homepage====================*/
 /*==========Main Section==========*/
 .mainContainer{
   max-width: 100vw;
@@ -136,6 +136,7 @@ background: radial-gradient(circle, rgba(21,100,94,1) 0%, rgba(0,28,52,1) 53%, r
 
 }
 
+/*==========Home Page=============================================================*/
 /*========All Projects============*/
 
 .allProjectSection{
@@ -180,6 +181,115 @@ background: radial-gradient(circle, rgba(21,100,94,1) 0%, rgba(0,28,52,1) 53%, r
   padding: 0 5% 5% 5%;
 }
 
+
+/*===================Project Page================================*/
+/*=====================================Main===========================================*/
+
+.projectContainer{
+  max-width: 100%;
+  padding: 5%;
+}
+
+.projectPageMain{
+  max-width: 100%;
+  padding: 5% 10% 1% 10%;
+  border: #001C34 2px solid;
+}
+
+.projectPageMain img{
+  width: 2%;
+  object-fit: contain;
+}
+
+.projectPageMain h2{
+  margin: 0%;
+  font-size: 2.5rem;
+  padding-bottom: 1rem;
+}
+.projectPageMain h4{
+  display: inline-block;
+  padding-left: 0.5rem;
+  padding-bottom: 0;
+  margin: 0%;
+}
+
+.projectImgGoalContainer{
+  max-width: 100%;
+  min-height: 50vh;
+  padding: 0% 5%;
+  display: flex;
+  justify-content: center;
+  border: #001C34 2px solid;
+}
+
+.projectImgGoalMini{
+  border: #001C34 2px solid;
+  width: 50%;
+}
+
+.projectImgGoalMini img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.goal{
+  text-align: center;
+  border: #001C34 2px solid;
+  width: 50%;
+  padding: 3%;
+}
+
+.goal h1{
+  font-size: 2rem;
+}
+/*================Project page==========================================================*/
+/*============Buttons============================*/
+
+.ProjectPageButton{
+  background-color: #001C34;
+  padding: 0.8rem;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: medium;
+  border: none;
+}
+
+.ProjectPageButton:hover{
+  background-color: #15645E;
+  color: #fff;;
+  padding: 0.8rem;
+  border: #001C34 2px solid;
+}
+
+.supporterList img{
+  width: 2%;
+  object-fit: contain;
+}
+
+/*================Project Page==============================================*/
+/*====================Description and Answers==============================================*/
+.descriptionAnswers{
+  max-width: 100%;
+  padding: 5%;
+}
+
+.descriptionAnswers li{
+list-style: none;
+}
+
+.descriptionAnswers div{
+  display: inline-block;
+  }
+
+.descriptionAnswers h2{
+ font-size: 2rem;
+}
+
+.descriptionAnswers h5{
+  font-size: 1.5rem;
+ }
 /*
 @media (prefers-color-scheme: light) {
   :root {

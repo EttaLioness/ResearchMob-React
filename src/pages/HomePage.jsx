@@ -89,21 +89,11 @@ useEffect(() => {
                     {projectList.map((projectData, key) => {
                     // if (key < 6)
                     return <ProjectCard key={key} projectData={projectData} userList={userList}/>
-                    // <div key={key}>{projectData.title}</div>
                 })}
                     </div>
                 </section>
                 
             </section>
-            
-            {/* <div>
-                {userList.map((userData, key) => {
-                    return <ProjectCard key={key} usertData={userData} />
-                })}
-            </div>  */}
-            {/* <div>{projectData.pledges.map((pledgeData, key) => {
-                    return <li>{pledgeData.amount} </li>})}
-            </div> */}
         </>
     );
 }

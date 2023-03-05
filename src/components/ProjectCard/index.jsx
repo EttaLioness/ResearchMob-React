@@ -23,8 +23,7 @@ function ProjectCard(props){
             <div className="projectCardContainer">
                 <Link to={`/project/${projectData.id}`}>
                     <img src={projectData.image}></img>
-                    <h2 className="Title">{projectData.title}</h2>
-                    <p>{projectData.description}</p>
+                    <h2 className="title">{projectData.title}</h2>
                     <section className="userDetails">
                         <div className="imgContainer">
                             <img src={owner?.image} alt="" /> 
@@ -43,7 +42,7 @@ function ProjectCard(props){
                         <span>Funded</span>
                         <span>Goal</span>
                     </div>
-                    
+                    <p>{projectData.description}</p>
                 </Link>
             </div>
     )

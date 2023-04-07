@@ -15,7 +15,7 @@ function ProjectCard(props){
     const { userList } = props;
 
     const owner = userList.find((user)=>user.id==projectData.owner);
-    console.log(owner)
+    // console.log(owner)
     const percentageGoalReached =(projectData.total_amount_pledged / projectData.goal)*100
     
 

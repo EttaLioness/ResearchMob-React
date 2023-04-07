@@ -2,3 +2,48 @@
     background: #001C34;
     color: white;
 }
+
+.logo{
+    padding: 5%;
+}
+
+.logo p{
+    padding-top: 0.5rem;
+    margin: 0%;
+}
+
+.soacial{
+    margin-top: 5%;
+}
+
+.social img{
+    color: white;
+    width: 1.5rem;
+    padding: 1rem;
+}
+
+.footerBody{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.policy{
+    display: flex;
+    flex-direction: column;
+    padding-top: 5%;
+}
+
+.policy a{
+    color: white;
+    text-decoration: none;
+}   
+
+.footerContainer span{
+    display: flex;
+    justify-content: center;
+    padding: 1% 0%;
+    border-top: white solid 1px;
+    margin: 0% 5%;
+
+}

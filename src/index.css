@@ -56,7 +56,7 @@
 }
 
 /*============Homepage====================*/
-/*==========Main Section==========*/
+/*==========Main Section(3 cards)==========*/
 .mainContainer{
   max-width: 100vw;
   height: 80vh;
@@ -144,19 +144,22 @@ background: radial-gradient(circle, rgba(21,100,94,1) 0%, rgba(0,28,52,1) 53%, r
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 0 5%;
-  
 }
 
 .farButtonContainer{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.farButtonContainer h2{
+  color: #ffffff;
 }
 
 .farButtonContainer a{
-  border-radius: 8px;
+ margin: 0%;
   border: 1px solid transparent;
-  padding: 0.8em 1.9em;
+  padding: 0.5em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -178,7 +181,8 @@ background: radial-gradient(circle, rgba(21,100,94,1) 0%, rgba(0,28,52,1) 53%, r
 .allProjectsContainer{
   max-width: 100vw;
   height: auto;
-  padding: 0 5% 5% 5%;
+  padding: 5%;
+  background-color: #15645E;
 }
 
 

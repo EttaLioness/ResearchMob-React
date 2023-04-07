@@ -34,7 +34,7 @@ function CreateProjectForm(){
         event.preventDefault(); //Dont send anything get, want to add logic
     
             postData().then((response) => {
-                console.log(response)
+                // console.log(response)
                 if (response.detail == "Invalid token."){
                     alert('You have to be logged in to create a project')    
                     navigate('/login')

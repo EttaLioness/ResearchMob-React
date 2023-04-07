@@ -30,7 +30,7 @@ function MakePledgeForm() {
         event.preventDefault(); //Dont send anything get, want to add logic
     
         {postData().then((response) => {
-            console.log(response)
+            // console.log(response)
             alert("Your Donation was successful")
             navigate(`/project/${projectId}`);
             })

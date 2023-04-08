@@ -82,7 +82,8 @@ function MakePledgeForm() {
         
         
     <form className="formBox"> 
-       <div>
+    <div className="innerFormBox">
+    <div>
             <h2>{pledgeData.project.title} Make Your Contribution</h2>
         </div>
         <div>
@@ -97,6 +98,7 @@ function MakePledgeForm() {
             <button className="createButton" type="submit" onClick={handleSubmit} >Donate Now</button>
             <Link to={`/project/${pledgeData.id}` } className="createButton">Cancel</Link>
         </div>
+    </div>
         
     </form>
     </section>

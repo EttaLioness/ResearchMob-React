@@ -120,23 +120,20 @@ function CreateProjectForm(){
                 <input className="inputBlock" onChange={handleChange} type="email" id="project_email" placeholder="Enter a project email. This is an email your supporters could contact you. " required></input>
             </div>
             <div>
-                <label htmlFor="description">Description of scientific project</label>
-                <textarea className="textareaClass" id="description" rows={15} cols={120} onChange={handleChange} placeholder="Please provide a description overview of your scientific project." required/>
+                <label htmlFor="description">Give a brief description of the scientific project</label>
+                <textarea className="textareaClass" id="description" rows={15} cols={80} onChange={handleChange} placeholder="Please provide a description overview of your scientific project." required/>
             </div>
             <div>
-                <label htmlFor="question_one">What is the context of this research?</label>
-                <div className="textareaWrap">
-                    <textarea onChange={handleChange} rows={15} cols={120} id="question_one" placeholder="Enter question response. " required></textarea>
-                </div>
-                
+                <label htmlFor="question_one">Provide a little detail on the context of this research?</label>
+                <textarea onChange={handleChange} rows={15} cols={80} id="question_one" placeholder="Enter question response. " required></textarea>         
             </div>
             <div>
-                <label htmlFor="question_two">What is the significance of this project?</label>
-                <textarea onChange={handleChange} rows={15} cols={120} id="question_two" placeholder="Enter question response. " required></textarea>
+                <label htmlFor="question_two">How is the  project significance or innovative?</label>
+                <textarea onChange={handleChange} rows={15} cols={80} id="question_two" placeholder="Enter question response. " required></textarea>
             </div>
             <div>
-                <label htmlFor="question_three">What are the goals of the project?</label>
-                <textarea onChange={handleChange} rows={15} cols={120} id="question_three" placeholder="Enter question response. " required></textarea>
+                <label htmlFor="question_three">What are the goals or objectives of the project?</label>
+                <textarea onChange={handleChange} rows={15} cols={80} id="question_three" placeholder="Enter question response. " required></textarea>
             </div>
             <div className="buttonContainer">
                 <button type="submit" onClick={handleSubmit} className="createButton" >Create Project</button>

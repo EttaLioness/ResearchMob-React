@@ -51,32 +51,35 @@ const postData = async () => {
 
     return (
         <section className="formMasterContainer">
-        <div>
-            {error && <h1>{error}</h1>}
+        
             <form className="formBox"> 
-                <div>
-                    <label htmlFor="username">Username:</label>
-                    <input 
-                        onChange={handleChange} 
-                        type="text" id="username" 
-                        placeholder="Enter username">
-                    </input>
+                <div className="errorMessage">
+                    {error && <h1>{error}</h1>}
                 </div>
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input 
-                        onChange={handleChange}     
-                        type="password" 
-                        id="password" 
-                        placeholder="Password">
-                    </input>
-                </div>
+                <div className="innerFormBox">
+                    <div>
+                        <label htmlFor="username">Username:</label>
+                        <input 
+                            onChange={handleChange} 
+                            type="text" id="username" 
+                            placeholder="Enter username">
+                        </input>
+                    </div>
+                    <div>
+                        <label htmlFor="password">Password:</label>
+                        <input 
+                            onChange={handleChange}     
+                            type="password" 
+                            id="password" 
+                            placeholder="Password">
+                        </input>
+                    </div>
                 <div class="singleButton">
                     <button type="submit" onClick={handleSubmit} className="createButton">Login</button>
                 </div>
-                
+                </div>
             </form>
-        </div>
+        
         </section>
     )
 };

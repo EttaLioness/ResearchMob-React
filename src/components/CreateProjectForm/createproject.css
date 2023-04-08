@@ -1,3 +1,4 @@
+
 .formMasterContainer{
     /* background-color: #15645E; */
     background-image: url("../../assets/doubleHelixok.png");
@@ -10,30 +11,29 @@
     background: rgb(5,62,111);
     background: linear-gradient(90deg, rgba(5,62,111,1) 0%, rgba(0,28,52,1) 50%, rgba(5,62,111,1) 100%);
     padding: 5%;
-    width: 80%;
+    width: 60%;
     border-radius: 2%;
     color: #ffffff;
     font-weight: 600;
     opacity: 0.8;
     border: #15645E solid 0.15rem;
+    display: flex;
+    justify-content: center;
 }
 
 .innerFormBox{
-    width: 80vw;
+    width: 80%;
 }
 .inputBlock{
     display: block;
 }
 
-.textareaWrap{
-   width: 95%;
-}
 textarea, input, select{
     background-color: #bff6f2
 }
 
 input{
-    width: 81%;
+    width: 92%;
     padding: 1%;
 }
 
@@ -77,4 +77,8 @@ select{
 }
 
 
-
+/*===================Error Messages==============*/
+.errorMessage{
+    color: #ffffff;
+    font-size: larger;
+}

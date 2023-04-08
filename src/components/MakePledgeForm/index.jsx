@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'; //hook that comes with React Router. This will allow us to use the browser’s History API.
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+// import './makePledge.css'
+import '../CreateProjectForm/createproject.css'
 
 function MakePledgeForm() {
     const { id:projectId } = useParams();
     //State
     const [pledgeData, setPledgeData] = useState({
-
     // default values 
         amount: "",
         comment: "",
@@ -76,21 +77,29 @@ function MakePledgeForm() {
         } 
 
     return(
-    <form> 
+    <section className="formMasterContainer">
+        
+        
+        
+    <form className="formBox"> 
        <div>
-            <h2>{pledgeData.project.title} here</h2>
+            <h2>{pledgeData.project.title} Make Your Contribution</h2>
         </div>
         <div>
-            <label htmlFor="amount">Funding Amount</label>
-            <input onChange={handleChange} type="number" id="amount" placeholder="Enter amount" required></input>
+            <label htmlFor="amount">Amount You Want To Contribute</label>
+            <input onChange={handleChange} type="number" id="amount" placeholder="Enter Dollar amount" required></input>
         </div>
         <div>
-            <label htmlFor="comment">Comment</label>
-            <input onChange={handleChange} type="text" id="comment" placeholder="Add a comment here" ></input>
+            <label htmlFor="comment">Add a Message to the Team       </label>
+            <input onChange={handleChange} type="text" id="comment" placeholder="Enter Comment Here" ></input>
         </div>
-        <button type="submit" onClick={handleSubmit} >Donate Now</button>
-        <Link to={`/project/${pledgeData.id}`}>Cancel</Link>
+        <div className="buttonContainer" >
+            <button className="createButton" type="submit" onClick={handleSubmit} >Donate Now</button>
+            <Link to={`/project/${pledgeData.id}` } className="createButton">Cancel</Link>
+        </div>
+        
     </form>
+    </section>
     )
 };
 //     const handleSubmit = (event) => {

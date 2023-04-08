@@ -87,7 +87,7 @@ useEffect(() => {
                 <section>
                     <div className="allProjectSection">
                     {projectList.map((projectData, key) => {
-                    // if (key < 6)
+                    if (key < 6)
                     return <ProjectCard key={key} projectData={projectData} userList={userList}/>
                 })}
                     </div>

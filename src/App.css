@@ -1,7 +1,7 @@
 /* html{
   margin: 0%;
 } */
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
   margin: 0%;
@@ -24,7 +24,15 @@ html{
   flex-wrap: wrap;
 }
 
+.content-container {
+  min-height: calc(100vh - 20rem);
+}
 
+.footer--pin {
+  position: relative;
+  left: 0;
+  bottom: 0;
+}
 
 
 /* #root {

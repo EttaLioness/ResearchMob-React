@@ -45,6 +45,8 @@
     display: flex;
     justify-content:space-evenly;
     line-height: 1rem;
+    width: 100%;
+    height: 10%;
 }
 .projectCardContainer p{
     color: #777;

@@ -18,16 +18,16 @@
     border: #15645E solid 0.15rem;
 }
 
-/* .innerFormBox{
-    display: flex;
-    justify-content: center;
-    border: red solid 2px;
-    width: 100%;
-} */
+.innerFormBox{
+    width: 80vw;
+}
 .inputBlock{
     display: block;
 }
 
+.textareaWrap{
+   width: 95%;
+}
 textarea, input, select{
     background-color: #bff6f2
 }
@@ -47,7 +47,7 @@ select{
 }
 
 /*===================BUTTONS===============================*/
-.createProjectButton{
+.createButton{
     background-color: #15645E;
     padding: 0.8rem;
     text-decoration: none;
@@ -57,7 +57,7 @@ select{
     border: none;
 }
 
-.createProjectButton:hover{
+.createButton:hover{
     background-color: #ffffff;
     color:#001C34;
     padding: 0.8rem;
@@ -66,6 +66,15 @@ select{
 .buttonContainer{
     display: flex;
     justify-content:space-between;
-    width: 100%;
+    width: 80%;
 }
+
+.singleButton{
+    display: flex;
+    justify-content:center;
+    margin-top: 6%;
+    
+}
+
+
 

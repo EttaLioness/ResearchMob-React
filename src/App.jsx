@@ -17,9 +17,11 @@ import './App.css'
 const HeaderLayout = () => {
   return (
     <div>
+      <div className="content-container"> 
       < Nav />
       < Outlet />
-      < Footer />
+      </div>
+      < Footer className="footer--pin" />
     </div>
   )
 }

@@ -1,6 +1,7 @@
 .footerContainer{
     background: #001C34;
     color: white;
+    max-height: 20rem;
 }
 
 .logo{
@@ -12,9 +13,16 @@
     margin: 0%;
 }
 
-.soacial{
+.social{
     margin-top: 5%;
 }
+
+.social img:hover,
+.social img:focus {
+  transform: scale(120%);
+  transition: all 0.1s ease-out;
+}
+
 
 .social img{
     color: white;

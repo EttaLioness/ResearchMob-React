@@ -79,6 +79,7 @@ function CreateProjectForm(){
             <div>
                 <label htmlFor="category">Pick a Category:</label>
                 <select id="category" onChange={handleChange}>
+                    <option value=""> -----Select an Option-----  </option>
                     <option value="Eng">Engineering</option>
                     <option value="Chem">Chemistry</option>
                     <option value="Bio">Biology</option>
@@ -124,7 +125,10 @@ function CreateProjectForm(){
             </div>
             <div>
                 <label htmlFor="question_one">What is the context of this research?</label>
-                <textarea onChange={handleChange} rows={15} cols={120} id="question_one" placeholder="Enter question response. " required></textarea>
+                <div className="textareaWrap">
+                    <textarea onChange={handleChange} rows={15} cols={120} id="question_one" placeholder="Enter question response. " required></textarea>
+                </div>
+                
             </div>
             <div>
                 <label htmlFor="question_two">What is the significance of this project?</label>
@@ -135,8 +139,8 @@ function CreateProjectForm(){
                 <textarea onChange={handleChange} rows={15} cols={120} id="question_three" placeholder="Enter question response. " required></textarea>
             </div>
             <div className="buttonContainer">
-                <button type="submit" onClick={handleSubmit} className="createProjectButton" >Create Project</button>
-                <Link to={'/'} className="createProjectButton" > Cancel</Link>
+                <button type="submit" onClick={handleSubmit} className="createButton" >Create Project</button>
+                <Link to={'/'} className="createButton" > Cancel</Link>
             </div>
             
         </div>

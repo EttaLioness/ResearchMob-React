@@ -37,17 +37,24 @@ useEffect(() => {
     
     const owner = userList.find((user)=>user.id==projectData.owner)
     console.log(owner)
-    const percentageGoalReached =(projectData.total_amount_pledged / projectData.goal)*100
+    const percentageGoalReached = (projectData.total_amount_pledged / projectData.goal)*100
+    const htmlpercentageGoalReached = percentageGoalReached.toFixed(2)
     const editProjectLink = `/EditProjectPage/${projectData.id}`
     // const OpenProject = () => {return (projectData.is_open) ? "Project Open" : "Project Closed"} Needs Editing
     return(
         <div className="projectContainer">
             <main className="projectPageMain">
                 <h2>{projectData.title}</h2>
-                <img src={owner?.image} alt="" />
-                <h4> By {owner?.first_name}</h4>
-                <h4>{owner?.last_name}</h4>
-                
+                <div className="projectUserBox">
+                    <div>
+                        <img src={owner?.image} alt="" />
+                    </div>
+                    <div className="userInfo">
+                        <h4> By {owner?.first_name}</h4>
+                        <h4>{owner?.last_name}</h4>
+                        <p>{owner?.affiliate}</p>
+                    </div>
+                </div>
             </main>
             <section className="projectImgGoalContainer">
                 <section className="projectImgGoalMini">
@@ -58,7 +65,7 @@ useEffect(() => {
                     <h1>${projectData.total_amount_pledged} Funded</h1>
                     {/* <h2>This project is: {OpenProject}</h2> Needs Editing */}
                     <h2>Goal ${projectData.goal}</h2>
-                    <h4>{`${percentageGoalReached}%`} Funded</h4>
+                    <h4>{`${htmlpercentageGoalReached}%`} Goal Reached</h4>
                     {/* <h3>{`Created at: ${projectData.date_created}`}</h3> */}
                     {/* <h3>{`Status: ${projectData.is_open}`}</h3> */}
                     <Link className="ProjectPageButton" to={`/project/${id}/makepledge`}>Fund This Project</Link>
@@ -76,22 +83,30 @@ useEffect(() => {
 
                 <h5>What are the goals of the project?</h5>
                 <p>{projectData.question_three}</p>
-
-                <h3>People who have already pledged</h3>
-                <ul className="supporterList">
-                    {projectData.pledges.map((pledgeData, key) => {
-                        // return <li>supporters (names): {pledgeData.supporter}</li>
-                        const supporter = userList.find((user)=>user.id==pledgeData.supporter)
-                        console.log("supporter", supporter)
-                        return (<li key={key}> 
-                        <img src={supporter?.image} alt="" />
-                        <div>{supporter?.username} ${pledgeData.amount}</div>
-                        
-                        </li>
-                        );
-                    })}
-                </ul>
-                <Link className="ProjectPageButton" to={editProjectLink} >Edit Project</Link>
+                <section className="projectPageMain">
+                {/* <section className="supporterSectionContainer"> */}
+                    <h3>People who have already pledged</h3>
+                        {projectData.pledges.map((pledgeData, key) => {
+                            // return <li>supporters (names): {pledgeData.supporter}</li>
+                            const supporter = userList.find((user)=>user.id==pledgeData.supporter)
+                            console.log("supporter", supporter)
+                            return (<div key={key}> 
+                            <section className="projectUserBox">
+                                <div>
+                                <img src={supporter?.image} alt="" />
+                            </div>
+                            <div className="userInfo supporterDetail">
+                                <h4>{supporter?.username} </h4>
+                                <p>${pledgeData.amount}</p>
+                            </div>
+                            </section>
+                            
+                            </div>
+                            );
+                        })}
+                </section>
+                
+                <Link className="ProjectPageButton edit" to={editProjectLink} >Edit Project</Link>
             </section>
         </div>
     )

@@ -1,4 +1,5 @@
-import React from "react";
+// import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './projectCard.css'
 
@@ -12,11 +13,27 @@ import './projectCard.css'
 
 function ProjectCard(props){
     const { projectData } = props;
-    const { userList } = props;
+    // const { userList } = props;
+    const [userList,setUserList] = useState([])
 
-    const owner = userList.find((user)=>user.id==projectData.owner);
-    // console.log(owner)
-    const percentageGoalReached =(projectData.total_amount_pledged / projectData.goal)*100
+    
+
+    useEffect(() => {
+        fetch(`${import.meta.env.VITE_API_URL}users`) //querying info from api listed in .env  and added the endpoint (project)
+        .then((results) => {
+            return results.json(); //turn it into object jason
+        })
+        .then((data) => {
+            setUserList(data)
+        });
+        // setProjectList(allProjects)
+    }, []);
+
+    const owner = userList.find((user)=>user.id==projectData.owner)
+    console.log(owner)
+
+    const percentageGoalReached = (projectData.total_amount_pledged / projectData.goal)*100
+    const htmlpercentageGoalReached = percentageGoalReached.toFixed(2)
     
 
     return (
@@ -35,7 +52,7 @@ function ProjectCard(props){
                     </section>
                     
                     <div className="moneyValues">
-                        <span>{percentageGoalReached}%</span>
+                        <span>{htmlpercentageGoalReached}%</span>
                         <span>${projectData.goal}</span>
                     </div>
                     <div className="moneyText">

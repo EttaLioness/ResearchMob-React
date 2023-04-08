@@ -1,6 +1,7 @@
 import React, { useState }from "react";
 import { useNavigate }from 'react-router-dom'; 
 //hook that comes with React Router. This will allow us to use the browser’s History API.
+import '../CreateProjectForm/createproject.css'
 
 function LoginForm(){
 const [ credentials, setCredentials ] = useState({
@@ -49,9 +50,10 @@ const postData = async () => {
 };
 
     return (
+        <section className="formMasterContainer">
         <div>
             {error && <h1>{error}</h1>}
-            <form> 
+            <form className="formBox"> 
                 <div>
                     <label htmlFor="username">Username:</label>
                     <input 
@@ -69,9 +71,13 @@ const postData = async () => {
                         placeholder="Password">
                     </input>
                 </div>
-                <button type="submit" onClick={handleSubmit}>Login</button>
+                <div class="singleButton">
+                    <button type="submit" onClick={handleSubmit} className="createButton">Login</button>
+                </div>
+                
             </form>
         </div>
+        </section>
     )
 };
 

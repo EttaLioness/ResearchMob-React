@@ -1,6 +1,7 @@
 import React, { useState, useEffect }from "react";
 import { Link } from "react-router-dom";
 import { useNavigate }from 'react-router-dom';
+import '../CreateProjectForm/createproject.css'
 
 function EditProjectForm(props){
 
@@ -73,14 +74,18 @@ function EditProjectForm(props){
     // console.log(formData)
 
     return (
-        <form> 
+        <section className="formMasterContainer">
+        
+        
+        <form className="formBox"> 
+            <div className="innerFormBox">
             <div>
                 <label htmlFor="title">Project Title:</label>
                 <input onChange={handleChange} type="text" id="title" value={formData.title}></input>
             </div>
             <div>
                 <label htmlFor="description">Description:</label>
-                <textarea id="description" rows={10} cols={120} onChange={handleChange} value={formData.description}/>
+                <textarea id="description" rows={15} cols={80} onChange={handleChange} value={formData.description}/>
             </div>
             <div>
                 <label htmlFor="image">Image:</label>
@@ -92,7 +97,7 @@ function EditProjectForm(props){
             </div>
             <div>
                 <label htmlFor="category">Pick a Category:</label>
-                <select id="category" onChange={handleChange}>
+                <select id="category" onChange={handleChange}value={formData.category} >
                     <option value="Eng">Engineering</option>
                     <option value="Chem">Chemistry</option>
                     <option value="Bio">Biology</option>
@@ -122,19 +127,23 @@ function EditProjectForm(props){
             </div>
             <div>
                 <label htmlFor="question_one">What is the context of this research?</label>
-                <textarea onChange={handleChange} rows={20} cols={120} id="question_one" value={formData.question_one}></textarea>
+                <textarea onChange={handleChange} rows={15} cols={80} id="question_one" value={formData.question_one}></textarea>
             </div>
             <div>
                 <label htmlFor="question_two">What is the significance of this project?</label>
-                <textarea onChange={handleChange} rows={20} cols={120} id="question_two" value={formData.question_two}></textarea>
+                <textarea onChange={handleChange} rows={15} cols={80} id="question_two" value={formData.question_two}></textarea>
             </div>
             <div>
                 <label htmlFor="question_three">What are the goals of the project?</label>
-                <textarea onChange={handleChange} rows={20} cols={120} id="question_three" value={formData.question_three}></textarea>
+                <textarea onChange={handleChange} rows={15} cols={80} id="question_three" value={formData.question_three}></textarea>
             </div>
-            <button type="submit" onClick={handleSubmit} > Submit Edit</button>
-            <Link to={`/project/${formData.id}`}>Cancel</Link>
+            <div className="buttonContainer">
+            <button type="submit" onClick={handleSubmit} className="createButton"> Submit Edit</button>
+            <Link to={`/project/${formData.id}`} className="createButton">Cancel</Link>
+            </div>
+        </div>
         </form>
+        </section>
     )
 };
 

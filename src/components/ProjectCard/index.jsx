@@ -38,14 +38,14 @@ function ProjectCard(props){
                         </div>
                     </section> */}
                     
-                    <div className="moneyValues">
-                        <span>{projectData.total_amount_pledged}</span>
+                    {/* <div className="moneyValues">
+                        <span>{projectData?.total_amount_pledged}</span>
                         <span>${projectData.goal}</span>
                     </div>
                     <div className="moneyText">
                         <span>Funded</span>
                         <span>Goal</span>
-                    </div>
+                    </div> */}
                     <p>{projectData.description}</p>
                 </Link>
             </div>

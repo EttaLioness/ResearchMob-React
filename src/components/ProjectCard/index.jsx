@@ -39,7 +39,7 @@ function ProjectCard(props){
                     </section> */}
                     
                     <div className="moneyValues">
-                        <span>{htmlpercentageGoalReached}%</span>
+                        <span>{projectData.total_amount_pledged}</span>
                         <span>${projectData.goal}</span>
                     </div>
                     <div className="moneyText">

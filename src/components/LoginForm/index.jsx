@@ -1,5 +1,5 @@
 import React, { useState }from "react";
-import { useNavigate }from 'react-router-dom'; 
+import { useNavigate, Link }from 'react-router-dom'; 
 //hook that comes with React Router. This will allow us to use the browser’s History API.
 import '../CreateProjectForm/createproject.css'
 
@@ -57,6 +57,9 @@ const postData = async () => {
                     {error && <h1>{error}</h1>}
                 </div>
                 <div className="innerFormBox">
+                <div className="noAccount">
+                <p>Dont have an account?<Link to={'/register'} className="createButton" > Create Account </Link></p>
+                </div>
                     <div>
                         <label htmlFor="username">Username:</label>
                         <input 
@@ -78,6 +81,7 @@ const postData = async () => {
                     <button type="submit" onClick={handleSubmit} className="createButton">Login</button>
                 </div>
                 </div>
+                
             </form>
         
         </section>

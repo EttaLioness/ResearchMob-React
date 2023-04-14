@@ -9,10 +9,11 @@ import LoginPage from './pages/LoginPage';
 import CreateProjectPage from './pages/CreateProjectPage';
 import MakePledgePage from './pages/MakePledgePage';
 import EditProjectPage from './pages/EditProjectPage';
+import CreateUserForm from './components/CreateUserForm/createUserForm';
 
 import './App.css'
 
-
+//  root component file, where you app lives
 
 const HeaderLayout = () => {
   return (
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <LoginPage />
+      },
+      {
+        path: '/register',
+        element: <CreateUserForm />,
       },
       {
         path: '/createproject',

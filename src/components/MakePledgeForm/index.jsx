@@ -16,8 +16,9 @@ function MakePledgeForm() {
         project: "",
     });
 
-    const handleChange = (event) => {
-        const { id, value } = event.target;
+    const handleChange = (event) => {    //argument is th event that triggered the function
+        const { id, value } = event.target; //destructuring to extract the id and value, 
+        //event.target object represents the element that triggered the event, in this case, an input element.
         setPledgeData((prevpledgeData) => ({
             ...prevpledgeData,
             [id]: value,
@@ -33,7 +34,7 @@ function MakePledgeForm() {
         {postData().then((response) => {
             // console.log(response)
             alert("Your Donation was successful")
-            navigate(`/project/${projectId}`);
+            navigate(`/project/${projectId}`); //need to add errors
             })
         };
     }
@@ -104,39 +105,4 @@ function MakePledgeForm() {
     </section>
     )
 };
-//     const handleSubmit = (event) => {
-//         event.preventDefault(); //Dont send anything get, want to add logic
-    
-//             postData().then((response) => {
-//                 console.log(response)
-//                 // window.localStorage.setItem("token", response.token)
-//                 navigate(`/project/${response.id}`);
-//             })  
-//     }
-//     const postData = async () => {
-//         const token = window.localStorage.getItem("token")
-//         const response = await fetch(`${import.meta.env.VITE_API_URL}projects/`, {
-//             method: "post",
-//             headers: {
-//                 "Content-Type": "application/json",
-//                 "Authorization": `token ${token}`
-//             },
-//             body: JSON.stringify(formData)
-//         })
-//         return response.json();
-        
-//     } 
-
-//     // console.log(formData)
-
-//     return(
-//         <form> 
-//             <div>
-//                 <label htmlFor="title">Project Title:</label>
-//                 <input type="text" id="title" readonly></input>
-//             </div>
-//         </form>
-
-//     )
-// };
 export default MakePledgeForm;

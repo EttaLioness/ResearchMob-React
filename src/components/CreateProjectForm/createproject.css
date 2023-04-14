@@ -76,6 +76,14 @@ select{
     
 }
 
+.noAccount{
+    display: flex;
+    justify-content: space-around;
+}
+
+.noAccount p{
+    padding-right: 5%;
+}
 
 /*===================Error Messages==============*/
 .errorMessage{

@@ -62,7 +62,7 @@ useEffect(() => {
                 </section>
                 <section className="projectImgGoalMini goal">
                     
-                    <h1>${projectData.total_amount_pledged} Funded</h1>
+                    <h1>${projectData?.total_amount_pledged} Funded</h1>
                     {/* <h2>This project is: {OpenProject}</h2> Needs Editing */}
                     <h2>Goal ${projectData.goal}</h2>
                     <h4>{`${htmlpercentageGoalReached}%`} Goal Reached</h4>

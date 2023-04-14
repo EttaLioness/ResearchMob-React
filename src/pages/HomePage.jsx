@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import ProjectCard from "../components/ProjectCard";
 import "../components/ProjectCard/projectCard.css"
 
-
-const categories = ["Engineering", "Chemistry","Biology","Mathematics", "Social Sciences", "Economic", "Data Science", "Computer Science", "Ecology","Physics", "Material Science","Earth Science","Education","Paleontology","Medicine", "Neuroscience", "Pschycology", "Anthropology", "Art and Design", "Political Science", "Astrophysics"]
+// Add for category filter
+// const categories = ["Engineering", "Chemistry","Biology","Mathematics", "Social Sciences", "Economic", "Data Science",
+//  "Computer Science", "Ecology","Physics", "Material Science","Earth Science","Education","Paleontology","Medicine",
+//   "Neuroscience", "Pschycology", "Anthropology", "Art and Design", "Political Science", "Astrophysics"]
 
 function HomePage(){
 const [projectList, setProjectList] = useState([]);
@@ -87,8 +89,10 @@ useEffect(() => {
                 <section>
                     <div className="allProjectSection">
                     {projectList.map((projectData, key) => {
-                    if (key < 6)
-                    return <ProjectCard key={key} projectData={projectData} userList={userList}/>
+                        // transform your array of data into an array of components
+                    if (key < 6) 
+                    return <ProjectCard key={key} projectData={projectData} userList={userList}/> // Pass data as prop
+                    // Keys let React keep track of each item’s place in the list even if the list changes.
                 })}
                     </div>
                 </section>

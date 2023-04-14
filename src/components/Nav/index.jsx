@@ -38,7 +38,7 @@ function Nav(){
             <ul className="nav-links">
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/createproject">Create Research Project</Link></li>
-
+                <li><Link to='/register' className='nav-item'>Create Account</Link></li>
                 {isUserSignedIn ? (
                 <li><button onClick={logout} className='loginButton'>Logout</button></li>
                     

@@ -12,15 +12,16 @@ import EditProjectPage from './pages/EditProjectPage';
 import CreateUserForm from './components/CreateUserForm/createUserForm';
 
 import './App.css'
-
+import { useState } from "react";
 //  root component file, where you app lives
 
 const HeaderLayout = () => {
+  const [loggedIn, setLoggedIn] = useState(window.localStorage.getItem("token") != null)
   return (
     <div>
       <div className="content-container"> 
-      < Nav />
-      < Outlet />
+      < Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      < Outlet context={[loggedIn, setLoggedIn]} />
       </div>
       < Footer className="footer--pin" />
     </div>

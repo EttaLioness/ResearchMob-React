@@ -1,9 +1,11 @@
 import React, { useState }from "react";
-import { useNavigate, Link }from 'react-router-dom'; 
+import { useNavigate, Link, useOutletContext }from 'react-router-dom'; 
 //hook that comes with React Router. This will allow us to use the browser’s History API.
 import '../CreateProjectForm/createproject.css'
 
 function LoginForm(){
+const [, setLoggedIn] = useOutletContext();
+
 const [ credentials, setCredentials ] = useState({
     username: '',
     password: '',
@@ -32,9 +34,12 @@ const handleSubmit = (event) => {
             if (response.token){
                 window.localStorage.setItem("token", response.token);
                 window.localStorage.setItem("username", credentials.username);
+                setLoggedIn(true);
                 navigate('/');
             } else {
-                setErrors(Object.values(response)[0][0]);
+                setLoggedIn(false)
+                setErrors(Object.values(response)[0][0])
+                
             }
         });  
     }
@@ -77,7 +82,7 @@ const postData = async () => {
                             placeholder="Password">
                         </input>
                     </div>
-                <div class="singleButton">
+                <div className="singleButton">
                     <button type="submit" onClick={handleSubmit} className="createButton">Login</button>
                 </div>
                 </div>

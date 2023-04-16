@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom'; //hook that comes with React Router. This will allow us to use the browser’s History API.
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-// import './makePledge.css'
+import { useNavigate, useOutletContext, Link, useParams } from 'react-router-dom'; //hook that comes with React Router. This will allow us to use the browser’s History API.
 import '../CreateProjectForm/createproject.css'
 
 function MakePledgeForm() {
+    // const { project } = props;
     const { id:projectId } = useParams();
-    //State
+    const [loggedIn] = useOutletContext();
+    const navigate = useNavigate();
+    
     const [pledgeData, setPledgeData] = useState({
     // default values 
         amount: "",
@@ -16,9 +16,8 @@ function MakePledgeForm() {
         project: "",
     });
 
-    const handleChange = (event) => {    //argument is th event that triggered the function
-        const { id, value } = event.target; //destructuring to extract the id and value, 
-        //event.target object represents the element that triggered the event, in this case, an input element.
+    const handleChange = (event) => {    
+        const { id, value } = event.target; 
         setPledgeData((prevpledgeData) => ({
             ...prevpledgeData,
             [id]: value,
@@ -26,41 +25,44 @@ function MakePledgeForm() {
         }));
     };
 
-    const navigate = useNavigate();
-
-    const handleSubmit = (event) => {
-        event.preventDefault(); //Dont send anything get, want to add logic
     
-        {postData().then((response) => {
-            // console.log(response)
-            alert("Your Donation was successful")
-            navigate(`/project/${projectId}`); //need to add errors
-            })
-        };
-    }
 
-
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
-    //     const loggedIn = window.localStorage.getItem("token");
-    //     if (loggedIn) {
-    //         try {
-    //             const response = await fetch(`${import.meta.env.VITE_API_URL}pledges/`,{
-    //                 method: "post",
-    //                 headers: {
-    //                     "Content-Type": "application/json",
-    //                     "Authorization": `Token ${loggedIn}`,
-    //                     },
-    //                 body: JSON.stringify(pledgeData),
-    //                 });
-    //             navigate("/");
-    //         } 
-    //         catch (err) {
-    //             console.error(err);
-    //         }
-    //         } else {
-    //         navigate(`/login`);
+    // const handleSubmit = (event) => {
+    //     event.preventDefault(); //Dont send anything get, want to add logic
+    
+    //     {postData().then((response) => {
+    //         // console.log(response)
+    //         alert("Your Donation was successful")
+    //         navigate(`/project/${projectId}`); //need to add errors
+    //         })
     //     };
+    // }
+
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        if (loggedIn) {
+            try {
+                if (pledgeData.amount && pledgeData.comment) {
+                    postData().then((response) =>{
+                        console.log(response);
+                        alert("Your Donation was successful")
+                        navigate(`/project/${projectId}`); 
+                        // location.reload();
+                    });                    
+                } else {
+                    return (alert("Please enter an amount and comment!"));
+                }
+            } catch (err) {
+                console.error(err);
+                alert(`Error: ${err.message}`);
+            };
+            
+        } else {
+            navigate(`/login`);
+        }
+    };
 
         const postData = async () => {
             const token = window.localStorage.getItem("token")
